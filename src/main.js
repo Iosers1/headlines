@@ -7,6 +7,8 @@ import router from "./router";
 import store from "./store";
 import Vant from "vant";
 import "vant/lib/index.css";
+// 动态rem基准值
+import "amfe-flexible";
 
 // 全局样式文件
 import "@/styles/index.less";
