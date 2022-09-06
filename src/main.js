@@ -5,6 +5,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+// vant组件库所有导入
 import Vant from "vant";
 import "vant/lib/index.css";
 // 动态rem基准值
