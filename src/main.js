@@ -1,25 +1,22 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable semi */
-/* eslint-disable quotes */
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
 // vant组件库所有导入
-import Vant from "vant";
-import "vant/lib/index.css";
+import Vant from 'vant'
+import 'vant/lib/index.css'
 // 动态rem基准值
-import "amfe-flexible";
+import 'amfe-flexible'
 
 // 全局样式文件
-import "@/styles/index.less";
+import '@/styles/index.less'
 // 注册使用 Vant 组件库
-Vue.use(Vant);
+Vue.use(Vant)
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
-  render: (h) => h(App),
-}).$mount("#app");
+  render: (h) => h(App)
+}).$mount('#app')

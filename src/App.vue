@@ -1,10 +1,7 @@
 <template>
   <div id="app">
-    <p>头条项目</p>
-    <router-view />
 
-    <i class="iconfont icon-shoucang"></i>
-    <van-button type="info">信息按钮</van-button>
+    <router-view />
   </div>
 </template>
 
