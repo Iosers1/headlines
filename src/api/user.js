@@ -59,3 +59,25 @@ export const deleteFollow = target => {
         url: `/v1_0/user/followings/${target}`// target目标用户（被取消关注的用户id）
     })
 }
+
+/**
+ * 获取用户个人资料
+ */
+// 获取指定用户信息
+export const getUserProfile = () => {
+    return request({
+        method: 'GET',
+        url: '/v1_0/user/profile'
+    })
+}
+
+/**
+ * 更新用户资料
+ */
+export const updateUserProfile = data => {
+    return request({
+        method: 'PATCH',
+        url: '/v1_0/user/profile',
+        data
+    })
+}
