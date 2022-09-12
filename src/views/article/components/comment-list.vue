@@ -62,7 +62,7 @@ export default {
                 const { results } = data.data
                 // eslint-disable-next-line vue/no-mutating-props
                 this.list.push(...results)
-                console.log(this.list)
+                // console.log(this.list)
                 // 3. 将 loading 设置为 false
                 this.loading = false
                 // 将获取到的评论返回给父组件：

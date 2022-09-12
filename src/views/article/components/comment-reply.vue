@@ -59,7 +59,7 @@ export default {
     mounted() { },
     methods: {
         onPostSuccess(data) {
-            console.log(123, data)
+            // console.log(123, data)
 
             // 更新回复的数量
             // eslint-disable-next-line vue/no-mutating-props

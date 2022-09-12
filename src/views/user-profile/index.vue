@@ -3,9 +3,19 @@
         <!-- 导航栏 -->
         <van-nav-bar class="page-nav-bar" title="个人信息" left-arrow @click-left="$router.back()" />
         <!-- /导航栏 -->
-        <van-cell title="头像" is-link>
+        <!-- 头像修改 -->
+        <input type="file" hidden ref="file" @change='onFileChange'>
+        <van-cell title="头像" is-link class="photo-cell" center @click="$refs.file.click()">
             <van-image class="avatar" fit="cover" round :src="user.photo" />
         </van-cell>
+        <!-- 编辑头像弹层 -->
+        <van-popup v-model="isUpdatePhotoShow" style="height: 100%" position="bottom">
+            <update-photo v-if="isUpdatePhotoShow" :img="img" @close="isUpdatePhotoShow = false"
+                @update-photo="user.photo = $event" />
+        </van-popup>
+        <!-- 编辑头像弹层 -->
+        <!-- 头像修改 -->
+
         <van-cell title="昵称" @click="isUpdateNameShow = true" :value="user.name" is-link />
         <!-- 编辑昵称弹层 -->
         <van-popup v-model="isUpdateNameShow" style="height: 100%;" position="bottom">
@@ -33,12 +43,14 @@ import { getUserProfile } from '@/api/user'
 import UpdateName from './components/update-name'
 import UpdateGender from './components/update-gender'
 import UpdateBirthday from './components/update-birthday'
+import UpdatePhoto from './components/update-photo'
 export default {
     name: 'UserProfile',
     components: {
         UpdateName,
         UpdateGender,
-        UpdateBirthday
+        UpdateBirthday,
+        UpdatePhoto
     },
     props: {},
     data() {
@@ -46,7 +58,9 @@ export default {
             user: {}, // 个人信息
             isUpdateNameShow: false,
             isUpdateGenderShow: false,
-            isUpdateBirthdayShow: false
+            isUpdateBirthdayShow: false,
+            isUpdatePhotoShow: false,
+            img: ''
         }
     },
     computed: {},
@@ -61,6 +75,21 @@ export default {
             } catch (err) {
                 this.$toast('获取数据失败')
             }
+        },
+        // 获取头像文件信息的方法
+        onFileChange() {
+            // 获取文件对象
+            const file = this.$refs.file.files[0]
+            // 基于文章对象获取 blob 数据
+            const data = window.URL.createObjectURL(file)
+            this.img = window.URL.createObjectURL(file)
+            console.log(data)
+            // 展示预览图片弹出层
+            this.isUpdatePhotoShow = true
+
+            // file-input 如果选了同一个文件不会触发 change 事件
+            // 解决办法就是每次使用完毕，把它的 value 清空
+            this.$refs.file.value = ''
         }
     }
 }
@@ -74,7 +103,14 @@ export default {
     }
 
     .van-popup {
-        background: #f5f7f9;
+        background-color: #f5f7f9;
+    }
+
+    .photo-cell {
+        .van-cell__value {
+            display: flex;
+            flex-direction: row-reverse;
+        }
     }
 }
 </style>

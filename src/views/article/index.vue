@@ -154,7 +154,7 @@ export default {
                 this.isLoading = true
                 const { data } = await getArticleById(this.articleId)
                 this.article = data.data
-                console.log(this.article)
+                // console.log(this.article)
                 // 注意：数据更新后并不会同步更新页面，所以想要获取数据更新后的页面元素，需要延时处理
                 // setTimeout(() => {
                 //     this.previewImg()
