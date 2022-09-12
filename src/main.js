@@ -7,6 +7,8 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 // 动态rem基准值
 import 'amfe-flexible'
+// 格式化日期模块导入
+import './utils/dayjs'
 
 // 全局样式文件
 import '@/styles/index.less'

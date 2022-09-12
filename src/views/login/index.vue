@@ -33,7 +33,7 @@
                 </template>
             </van-field>
             <div class="login-btn-wrap">
-                <van-button class="login-btn" block type="info" native-type="submit">
+                <van-button class="login-btn" block type="badge" native-type="submit">
                     登录
                 </van-button>
             </div>

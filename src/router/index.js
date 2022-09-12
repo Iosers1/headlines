@@ -38,9 +38,16 @@ const routes = [
     // 完整写法是：@views/login/index.vue，但是index.vue可以省略，导入一个目录时默认导入目录下的index.vue
   },
   {
-    path: '/home',
-    name: 'home',
-    component: () => import('@/views/home')
+    path: '/search',
+    name: 'search',
+    component: () => import('@/views/search')
+  },
+  {
+    path: '/article/:articleId', // 需要传递文章id
+    name: 'article',
+    component: () => import('@/views/article'),
+    // 开启 Props 传参，说白了就是把路由参数映射到组件的 props 数据中
+    props: true
   }
 ]
 const router = new VueRouter({

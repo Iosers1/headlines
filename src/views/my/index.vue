@@ -94,7 +94,7 @@ export default {
             }).catch(() => {
                 // 点击弹框取消执行catch
                 // on cancel
-                console.log('取消执行这里')
+                console.log('取消执行')
             })
         },
         async loadUserInfo() {
